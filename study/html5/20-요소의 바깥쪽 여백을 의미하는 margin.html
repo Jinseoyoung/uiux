@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>요소의 바깥쪽 여백을 의미하는 margin</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        
+        /*  .tect-center 클래스가 붙어있는 모든 요소
+        점 앞에 코드가 없으면 (*) 가 생략되어 있다 . ( * : 전체선택자) */
+       
+       
+        h2,h3,address{
+            height:100px;
+            line-height:100px;
+            text-align:center;
+        }
+        
+        /*자주써놓는 스타일은 reset 에 넣어놓고 쓰면 편함 !~~~~ */
+        
+       /* ctrl shift m 
+        emmet > mergeline   >> 한줄로 바꾸기*/
+        
+        /*클래스쓰면 가독성좋아짐*/
+        
+        /*background 랑 font 는 축약으로 쓰지 않기 ~!!!!!! */
+        
+        .case_1>.parent{
+            width:250px;
+            height:250px;
+            background-color:blue;
+            border : 1px solid transparent; /*투명한 보더로 자리만차지*/    
+        }
+        
+        /*
+            문제 1.
+            자식박스에 윗마진 100px, 왼쪽마진 150px 적용
+            (마진은 바깥쪽 여백이다.
+             마진은 위부터 시작해서 시계방향으로 
+            magin-top (right, bottom, left) )
+        */
+        
+        .case_1>.parent>.child{
+            width:100px;
+            height:100px;
+            
+            margin-top:100px;
+            margin-left:150px; 
+            
+           
+            line-height:100px;
+            text-align:center;
+            background-color:yellow;
+        }
+    
+        
+        /****************************************************************/
+        
+        .case_2>.parent
+            {width:600px; 
+             height:500px; 
+             background-color:blue; 
+             border:1px solid red;}
+        
+        .case_2>.parent>p{
+            display:inline-block;
+            width:100px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+            border:1px solid black;
+        /*상자의 크기는 102 px!! (밖에 생기니까)*/
+            box-sizing:border-box;}
+        
+        
+        /*
+        문제2
+        .child_1 요소에게 margin 을 다음과 같이 설정
+        위로 100, 오른쪽 150, 아래 20, 왼쪽 200
+        */
+        
+        
+        .case_2>.parent>.child_1{
+            
+            display:inline-block;
+            margin:50px,50px,50px, 50px;/*약식표현법*/
+            margin:50px;
+            /*사방이 동일한 값일 경우 약식표현법*/
+            margin:100px 70px;
+            /*위아래 동일하고, 좌우가 동일한 경우*/
+            margin:100px 70px 20px;
+            /*위아래는 다르고 좌우만 동일한 경우*/
+            
+            
+            color:white;
+            background-color:red;
+        }
+        
+        .case_2>.parent>.child_2{
+            display:inline-block;
+            
+            background-color:pink;
+        }
+        
+        .case_2>.parent>.child_3{
+    
+            display:inline-block;
+            
+            margin:0 0 0 50px;
+            margin-left:70px;
+            background-color:aqua;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        /***************************************************************/
+        
+        .case_3>.parent{
+            overflow:hidden; 
+            /*부모한테 설정한다 중요 !!! *
+            넘쳐흐르는 내용을 숨김처리*/
+            width:600px;
+            height:200px;
+            background-color:pink;
+            border:1px solid black;
+        }
+        
+        .case_3>.parent>p{
+            display:inline-block;
+            /*블럭요소처럼 width height 적용 가능
+            인라인처럼 나란히 ...*/
+            width:150px;
+            height:50px;
+            color:white;
+            line-height:50px;
+            text-align:center;
+          
+        }
+        
+        .case_3>.parent>.child_1{
+            width:150px;
+            height:50px;
+/*            margin-right:100px; */
+/*            margin-right:400px; */
+        
+            background-color:blue;
+        }
+        
+        .case_3>.parent>.child_2{
+            width:150px;
+            height:50px;
+            margin-left:400px; 
+            background-color:red;
+        }
+        
+        /*마진은 블럭에 붙어있는거
+        오른쪽으로 overflow되지 않음
+        한줄 내려감 ! */
+        
+        /*****************************************************************/
+        
+        article.case_4{background-color:yellow;}
+        .case_4>.auto{
+            width:200px;
+            height:80px;
+            margin:0 auto;
+            /*박스를 부모 요소를 기준으로 가로 중앙에 배치하고자 할 때 margin:0 auto 를 지정한다.
+            auto 키워드는 좌우만 적용된다. */
+            
+            margin:0 auto 100px;
+            /*좌우로 auto, 아래로 100px*/
+            
+            margin:100px auto 0;
+
+            line-height:80px;
+            text-align:center;
+            background-color:darkmagenta;
+        }
+        
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+<div id="wrap">
+   
+   <!--header, section, article, footer, nav, aside 이런 태그를
+       HTML5 레이아웃용 시멘틱 태그하고 한다.
+       
+       이 태그들의 역할은 브라우저에게 각각의 영역에 대한 의미만을 부여할뿐 기본 CSS하고는 아무 관계 없다.
+
+              -->
+    <header>
+        <h1 class="text-center">margin 사용법</h1>
+    </header>
+    
+    <!--div 빈그릇태그-> h1, p, address ....
+                    -> section(내용영역) -->
+                    
+    <!-- div#header >>   <header>
+                    >>   <section>
+                    >>   <footer>-->
+                    
+                                                    
+    <section>
+     
+     <h2>margin의 상황별 이해</h2>
+      
+        <article class="case_1">     
+        <h3>1. 부모자식 관계의 margin</h3>
+        <ol>
+            <li>왼쪽 상단 꼭지점이 기준</li>
+            <li>벽을 밀어내는 느낌</li>
+            <li>벽을 밀면 벽은 그대로</li>
+            <li>벽을 미는 내가 밀려난다.</li>
+        </ol>
+        
+        <div class="parent"> <!--250 * 250-->
+            <p class="child">자식</p> <!--100 * 100-->
+        </div>
+                                           
+                            
+       </article>
+           
+        <hr><!--원래 hr은 안보이는 거임 ! 그래도 hr 을 쓴다. (의미적으로)-->
+
+        <article class="case_2">
+            <h3>2. 형제관계의 margin</h3>
+            
+            <ol>
+                <li>오른쪽, 아래 방향은 형제요소를 밀어낸다.</li>
+                <li>왼쪽, 위쪽 방향은 margin을 적용한 요소가 밀려난다.</li>
+            </ol>
+            
+            
+            <p>
+                margin은 요소 자신을 움직이고 싶을 때 사용한다.
+                또는 요소와 요소간의 간격을 떨어뜨리고 싶을 때 사용한다.
+            </p>
+            <div class="parent">
+                <p class="child_1">자식1</p><p class="child_2">자식2</p><p class="child_3">자식3</p>
+            </div>
+        </article>
+        
+        <hr>
+        
+        <article class="case_3">
+            <h3>3. 부모의 폭과 margin의 관계</h3>
+              <div class="parent">
+                <p class="child_1">자식1</p><p class="child_2">자식2</p>
+            </div>
+            
+        </article>
+        
+        <hr>
+        
+        <article class="case_4">
+            <h3>4. 가로 중앙으로 배치하는 auto 키워드</h3>
+            
+            <p class="auto">가로중앙박스</p>
+        </article>
+        
+        
+    </section>  
+                   
+    <footer>
+        <address>&copy;Designed by 진서영</address>
+    </footer>                                          
+                    
+</div>
+</body>
+</html>

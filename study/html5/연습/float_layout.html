@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float을 이용한 레이아웃</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        *{margin:0;padding:0;}
+        
+        /*@@@@@@@@@@@@@@@@@@@@@이거 중요*/
+          #wrap{
+            width:700px;
+            margin:0 auto;
+        }
+        
+        
+        h1{
+            margin-top:30px;
+            margin-bottom:10px;
+            width:700px;
+            /*보더랑 합쳐서 1 698 1*/
+            height:150px;
+            font-size:1em;
+            font-weight:400;
+            line-height:150px;
+            text-align:center;
+            border:1px solid black; 
+            box-sizing:border-box;
+        }
+        
+        /*section{float:left;}*/
+        section{*zoom:1;}
+        section{display:block;clear:both;content:'';}
+    
+        .left{
+            float:left;
+            display:inline;
+            margin-right:10px;
+            width:250px;
+            height:400px;
+            line-height:400px;
+            text-align:center;
+            border:1px solid black;
+            box-sizing:border-box;
+        }
+        
+        .cont{
+            float:left;
+            width:436px;
+            height:400px;
+            line-height:400px;
+            text-align:center;
+            border:1px solid black;
+            box-sizing:border-box;
+        }
+        
+        address{
+            float:left;
+            display:block;
+            width:700px;
+            height:100px;
+            margin-top:10px;
+            line-height:100px;
+            text-align:center;
+            border:1px solid black;
+            box-sizing:border-box;
+        }
+        
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <header><h1>메인메뉴 영역</h1></header>
+    <section>
+        <article class="left">서브메뉴</article>
+        <article class="cont">본문내용</article>
+    </section>
+    <footer><address>&copy;Designded by 진서영</address></footer>
+
+</div>
+</body>
+</html>

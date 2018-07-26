@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float을 이용한 레이아웃</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+			*{margin:0;padding:0;}
+		
+			/* CSS 코드를 작성하세요 */
+        
+/*
+ w h bgc float 은 
+ 부모가 자식에게 상속되지 않는다.
+ (text 관련은 상속된다)
+ 상속 : 부모 or 조상의 성질을 받음
+ 
+ @@텍스트 관련 속성은 자손에게 상속된다@@
+*/
+
+        #wrap{
+            width:960px;
+            margin:30px auto 0;
+            
+            /*@@텍스트 관련 속성은 자손에게 상속된다@@*/
+            font-weight:800;
+            font-size:2em;
+            text-align:center;
+            
+            /*outline:1px solid red; 이거 첨에 하면 좋음*/
+                /*OUTLINE : border랑 똑같은데 box-size 에 영향을 안준다*/
+        }
+        
+        header,.lnb,.ad,.cont,footer{/*outline:1px solid black*/;border-radius:10px;}
+        /*아웃라인은 보더래디우스 안들어감*/
+        
+        /*형상먼저 만들고 하는게 편함*/
+        
+        header{
+            height:100px;
+            line-height:100px;
+            background-color:gray;
+        }
+        
+        section{margin:10px 0;*zoom:1;}
+        section:after{
+            display:block;/*clear both는 반드시 block속성에서만 적용*/
+            clear:both;/*플롯의 영향력 차단효과*/
+            content:''/*가상선택자:after는 반드시 content속성이 필요*/
+        }
+        
+        section{
+            margin:10px 0;
+        }
+        
+        /*FLOAT은 left 와 cont 에게*/
+        
+        section>.left{
+            float:left;
+            width:200px;
+            /*margin-right:10px;*/
+        }
+        
+        /*높이는 가지고 있는 컨텐츠 양만큼
+        section의 높이는 400px */
+        
+        section>.left>.lnb{
+            height:250px;
+            margin-bottom:10px;
+            background-color:blue;
+        }
+        
+        section>.left>.ad{
+            height:140px;
+            background-color:pink;
+        }
+        
+        section>.cont{
+            float:right;/*마감재가 없어서 footer 올라옴*/
+            /*두개 상자 일때 (left 랑 right) 마진 안쓰고 float 을 left 랑 right를 쓰면
+            수치계산 필요없이 양옆에 붙는다. */
+            width:750px;
+            height:400px;
+            background-color:yellow;
+        }
+        
+        footer{
+            height:100px;
+            background-color:brown;
+        }
+			
+    </style>
+</head>
+<body>
+<!--
+FLOAT 할때는 부모관계 만들고
+자식에 적용한다. 
+-->
+
+<!--
+ w h bgc float
+ 은 
+ 부모가 자식에게 상속되지 않는다.
+ (text 관련은 상속된다)
+ 상속 : 부모 or 조상의 성질을 받음
+ 
+ @@텍스트 관련 속성은 자손에게 상속된다@@
+ -->
+ 
+<div id="wrap">
+	<header>헤더</header>
+	
+	<section>
+		<article class="left">
+		    <div class="lnb">LNB</div>
+		    <div class="ad">AD</div>
+		</article>
+		
+		<article class="cont">컨텐츠</article>
+		
+	</section>
+	
+	<footer>푸터</footer>
+</div>    
+            
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>테이블 만들기</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        #wrap{
+            width:650px;
+            margin:0 auto;
+        }
+        
+        h1{font-size:20px;text-align:center;}
+        hr{margin:30p 0;}
+        
+        
+        /*
+        td는 세로중앙정렬이 기본설정됨
+        td하나(셀)안에서 세로 정렬은 vertical-align 속성 이용
+        */
+        table{border-collapse:collapse}
+        /*셀 간격과 2중테두리가 완벽하게 통합
+        테이블 전용 테그 이다.*/
+        
+        /* th 는 굵은글씨, 가세정렬이 기본적으로 설정된다.
+           th 는 테이블 컬럼에 사용된 자료를 구분하기 위해 쓰임
+           열에 대한 제목 scope="col"
+           행에 대한 제목 scope="row"
+        
+           td 는 세로중앙정렬만 기본설정됨      */
+        
+        
+        
+        th{ 
+            width:150px;
+            height:50px;
+            border:1px solid black;
+        }
+        
+        td{
+            width:150px;
+            height:50px;
+            text-align: center;
+            /*테이블에서 라인하이트 안되고 버티컬얼라인으로 한다*/
+            vertical-align: top; /*테이블에서만 쓸수있음*/
+            vertical-align:bottom;
+            vertical-align:middle;
+            border:1px solid black;
+        
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        
+        <header><h1>테이블은 표로된 정보를 나타낼 때만 사용</h1></header>
+        
+        <section>
+            <h2>1행 1열</h2>
+            <table> <!--가장 기본적인 table //// table+ 하고 엔터누르기-->
+                <tr><!--행-->
+                    <td>1행 1열</td><!--열-->
+                </tr>   
+            </table>
+            
+            <hr>
+            
+            <h2>1행 2열</h2>
+            <table>
+                <tr>
+                    <td>1-1</td>
+                    <td>1-2</td>
+                </tr>
+            </table>
+            
+            <hr>
+            
+            <h2>1행3열</h2>
+            <table>
+                <tr>
+                    <td>1-1</td>
+                    <td>1-2</td>
+                    <td>1-3</td>
+                </tr>
+            </table>
+            
+            <hr>
+            
+            <h2>2행1열</h2>
+            <table>
+                <tr>
+                    <td>1-1</td>
+                </tr>
+                <tr>
+                    <td>2-1</td>
+                </tr>
+            </table>
+            
+            <hr>
+            
+            <h2>2행2열</h2>
+            <table>
+                <tr>
+                    <td>1-1</td>
+                    <td>1-2</td>
+                </tr>
+                <tr>
+                    <td>2-1</td>
+                    <td>2-2</td>
+                </tr>
+            </table>
+            
+            <hr>
+            
+            <h2>문제) 3행 4열 테이블 만들기</h2>
+            <table>
+                <tr>
+                    <td>1-1</td>
+                    <td>1-2</td>
+                    <td>1-3</td>
+                    <td>1-4</td>
+                </tr>
+            </table>
+            
+            <hr>
+            <h2>UI/UX 출석부</h2>
+            <table>
+                <tr>
+                   
+                   <!--표의 제목이니까 th 라고 하자-->
+                    <th scope="col">이름</th>
+                    <th scope="col">연락처</th>
+                    <th scope="col">주량</th>
+                    <th scope="col">지역</th>
+                    <!--<th scope="col">=제목이 열방향이다.-->
+                    
+                </tr>
+                <tr>
+                    <td>홍길동</td>
+                    <td>010-1418-1155</td>
+                    <td>2병</td>
+                    <td>무릉도원</td>
+                </tr>
+                <tr>
+                    <td>김수지</td>
+                    <td>010-2344-3930</td>
+                    <td>3병</td>
+                    <td>서울시</td>
+                </tr>
+                <tr>
+                    <td>김지영</td>
+                    <td>010-5435-7858</td>
+                    <td>5잔</td>
+                    <td>부산시</td>
+                </tr> 
+            </table>
+            
+            <hr>
+            
+            <h2>3행 4열 테이블에서 열병합 - 행 rowspanc, 열 colspan</h2>
+            <table>
+               
+                <tr>
+                    <td>1-1</td>
+                    <td colspan="3">1-2</td>
+                  <!--  <td>1-3</td>
+                    <td>1-4</td>-->
+                </tr>
+                <tr>
+                    <td rowspan="2">2-1</td>
+                    <td>2-2</td>
+                    <td>2-3</td>
+                    <td rowspan="2">2-4</td>
+                </tr>
+                <tr> 
+                    <!--<td>3-1</td>-->
+                    <td colspan="2">3-2</td>
+                    <!--<td>3-3</td>-->
+                    <!--<td>3-4</td>-->
+                </tr>
+               
+                
+            </table>
+           
+        
+        </section>
+    </div>
+</body>
+</html>

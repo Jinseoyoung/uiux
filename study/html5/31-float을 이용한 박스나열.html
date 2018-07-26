@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float을 이용한 박스 나열</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+    /*float 나열 (세로로 된걸 가로로 정렬)
+        float right 은 4321 순서로 배치.. (2개있을때까지만 쓴다 원래잘안씀)
+        주변요소를 끌어당기는 자석성질
+        메뉴같은거 만들때 풀릇 씀
+        p는 영역 차단시키기
+    position 배치
+        레이아웃을 결정*/
+
+        .study>li{
+            float:left;
+            width:200px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+        }
+        
+        .study>li:first-child{background-color:red;}
+        .study>li:nth-child(2){background-color:yellow;}
+        .study>li:nth-child(3){background-color:orange;}
+        .study>li:nth-child(4){background-color:green;}
+        
+        .clearfix{clear:both;}
+        /*clear left 랑 clear right 합친거// 실무엔 보스 */
+        
+        hr{position:static; left:0; margin:50px 0;}
+        
+        
+        
+        
+        
+ /*********************************************************************************/       
+        /*after는 콘텐츠가 있어야만 한다.*/
+        .subject:after{
+            display:block;
+            clear:both;
+            content:;
+        } /* 이 네줄은 세트~~~~~~~~~ 다. 중요*/
+        
+        .subject>li{
+            float:left;
+            width:200px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+        }
+        
+        
+        .subject>li:first-child{background-color:deeppink;}
+        .subject>li:nth-child(2){background-color:coral;}
+        .subject>li:nth-child(3){background-color:cyan;}
+        .subject>li:nth-child(4){background-color:skyblue;}
+        
+        /***********************************************************************************/
+        
+        .test{zoom:1;}/*의미 없음// 구형 ie 브라우저에서 아래의 :after 가상선택자 구문을 인식하게 하는 코드로서 CSS 핵이라고 불러온다.*/
+        
+        
+        .test:after{
+            display:block;
+            clear:both;
+            content:'';    /*ie 6~9*/ 
+        }
+        
+        
+        .test>span{
+            display:block; /*스팬한테 블럭 주려면 display:block*/
+            float:left;
+            width:100px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+        }
+        
+        span:nth-child(1){background-color:red;}
+        span:nth-child(2){background-color:blue;}
+        span:nth-child(3){background-color:yellow;}
+        span:nth-child(4){background-color:green;}
+        span:nth-child(5){background-color:pink;}
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <h1 class="text-center">float을 이용한 박스 나열</h1>
+    
+    <ul class="study">
+        <li>HTML5</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+        <li>jQuery</li>
+    </ul>
+    <!--ul과 ol은 li 만 자식으로 가질 수 있다.-->
+    
+    <div class="clearfix"></div>
+    <!--float의 끌어당기는 영향력을 차단시키는 마감재 역할을 한다. 안정적-->
+    
+    
+    <p>안녕</p>
+    
+    <hr>
+    
+    <ol class="subject">
+        <li>UI/UX</li>
+        <li>포토샵</li>
+        <li>일러스트</li>
+        <li>포트폴리오</li>
+    </ol>
+    
+    
+    
+    <p style="clear:both">추천과목</p>
+    <!--이렇게 해도 된다 -->
+    <p>인기과목</p>
+    
+    <hr>
+    
+<!--    가상선택자를 이용하여 float을 완성하세요
+    100*100-->
+    
+    <p class="test">
+        <span class="red">red</span>
+        <span class="blue">blue</span>
+        <span class="yellow">yellow</span>
+        <span class="green">green</span>
+        <span class="pick">pink</span>
+    </p>
+    
+    <p>플롯테스트</p>
+    
+</div>
+</body>
+</html>

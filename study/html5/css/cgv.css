@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+/*css 에서 들여쓰기xxx */
+
+body{ /*1점*/
+    font-size:12px;
+    background-color:#fdfcf0;
+}
+
+#wrap{/*100점*/
+    width:1000px;
+    margin:0 auto;
+   /* outline:1px solid red; 임시설정   */     
+}
+
+
+/*헤더영역*/
+header>h1{/*2점*/
+    font-size:15px;
+    padding:50px 0 20px;
+}
+
+/*마진탑 주는방법 // 패딩탑 주는 방법*/
+
+/*인접형제(동기)연산자 p 선택*/
+header>h1+p{/*3점*/
+    font-weight:800; /*기본값이 400*/
+    line-height:140%/*기본값은 120%,1.2*/
+}
+
+/*본문영역*/
+section{/*1점*/
+    margin:20px 0;
+/*    outline:1px solid red;*/
+}
+
+section>.guide{/*11점*/
+    padding:40px 0;
+    
+    /*방법1*/
+    border-top: 1px solid #e1ddd3;
+    border-bottom:1px solid #e1ddd3;
+    
+    /*방법2*/
+    border:1px solid #e1ddd3
+    border-right:none;
+    border-left:none;
+    /*위아래 주던지 or 4방향 하고 양옆 빼던지*/
+}
+
+section>.guide>h3{/*12점*/
+    margin-bottom:20px;
+    color:#764d25;
+    font-size:13px;
+   /* margin-left:30px; 박스 자체 움직이기*/
+   /* text-indent:30px; 들여쓰기 이게 더 간지ㅋㅋㅋ*/
+    text-indent:30px;/*margin-left:30px 도 같은 결과*/
+    
+    /* height와 line-height를 꼭 같이 써야 하는가 ?
+    >> 꼭 그렇지는 않다. 같이 쓰지 않아도 된다. */
+    /*    height:100px;
+    line-height: 100px;                     */
+}
+
+section>.guide>ul{/*12점*/
+    margin-left:30px;
+}
+
+section>.guide>ul>li{/*13점*/
+    font-weight:600;
+    line-height:1.6;
+}
+section>.guide>ul>li>span{/*14점*/
+    display:block;
+    text-indent:8px;/*margin-left:30px 도 같은 결과*/
+}
+/*text-indent 의 활용 예*/
+
+section>.contact{/*11점*/
+    margin-top:30px;
+}
+
+section>.contact>h3{/*12점*/
+    margin-bottom:20px;
+    font-size:13px;
+    /*마진 이나 text-indent 주면 됌*/
+    text-indent:30px;
+}
+
+section>.contact>div{/*12점*/
+    margin:0 15px 20px 15px;
+    margin:0 15px 20px;
+    padding:20px 0 20px 20px;
+    
+    border:1px solid #e1ddd3;
+}
+
+/* 요소와 요소를 띄울 때 br 을 쓰지 않는다.
+문장을 줄바꿈할때 쓰임 */
+
+section>.contact>div>ul{/*13점*/
+    
+}
+
+
+/*
+문맥선택자는 자손을 선택할 때 사용하는데 @@한칸 공백@@으로 표현한다. 
+주의점 !!! 확실할때만 쓰기.
+선택시 중복되는 요소를 반드시 확인하며 신중히, 
+문제가 없다는 것이 확실할때 사용한다. 
+
+section li (섹션의 자손)
+">" 는 직계자식선택자 이걸로 하기 ! 
+*/
+
+section>.contact li{/*12점*/
+    height:18px;
+    line-height:18px;
+    /*border:1px solid red;*/
+}
+
+section>.contact>div>p{/*13점*/
+    /*일반적으로 마진탑 쓴다*/
+    /*height:40px;
+    line-height:40px;*/
+    margin-top:20px;
+    font-weight:600px;
+}
+
+section>.contact>p{/*12점*/
+
+    margin-top:20px;/*h3{mb:20}와 마진 통합현상 발생하므로 의미 없음*/
+    margin-right:15px;
+    margin-bottom:20px;
+    margin-left:15px;
+    
+    
+    padding:20px 0 20px 20px;
+    line-height: 18px;
+    border:1px solid #e1ddd3;
+}
+
+footer>p>a{/*3점*/
+    display:block; /*인라인블럭 보다 블럭이 더 많이 쓰인다*/
+    width:160px;
+    height:25px;
+    margin:0 auto;/*margin:0 auto; 일정한 width값이 있어야(가로폭이 고정수치일때) 효과가 있다*/    
+    line-height:25px;
+    text-align:center;
+    border:2px solid #727272;
+    border-radius:5px;
+}
+/*푸터영역*/
+footer>p>button{/*3점*/
+    /*built-in
+    
+    background color
+    boder
+    outline 
+    
+    가 기본적으로 적용되어 있다
+    
+    버튼을 스타일링 할때는 built-in CSS 초기화
+    
+    버튼은 패딩을 원래 가지고 있다.*/
+    
+    padding:0;
+    background:none;
+    border:none;
+    box-sizing:content-box;
+    outline:none;
+    
+    
+    display:block; 
+    width:160px;
+    height:25px;
+    margin:0 auto;
+    font-size:12px;
+    line-height:25px;
+    text-align:center;
+    border:2px solid #727272;
+    border-radius:5px;
+    
+}
+
+/*앵커 버튼 둘다 인라인 !!!!! */
