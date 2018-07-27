@@ -1,1 +1,193 @@
-@charset"utf-8";
+@charset "utf-8";
+
+#wrap{
+    width:600px;
+    margin:0 auto;
+    background-color:#333;
+    /*outline:1px solid red;*/
+}
+/*
+#006699=#069
+#006698은 그대로 써야됌
+*/
+header{
+    position:relative;/*내 자손들이 position할때 내 기준으로 움직여라*/
+    height:100px;
+    background-color:#069;
+}
+
+/*#wrap>header 은 의미가 없다*/
+header>h1{
+    position:absolute;/*기준부터 정하자 header*/
+    left:30px;
+    top:40px;/*기준점 정하는것임*/
+    /*마진은 요소와 요소를 떨어뜨림
+    내가 원하는 위치에 배치하는것 = position*/
+    color:#fff;
+    font-size:30px;
+}
+
+header>nav{
+    position:absolute;/*width는 자기가 가진것의 100%*/
+    left:240px;
+    top:45px;
+    /*outline:1px solid red;*/
+}
+
+header>nav>.gnb{width:260px;*zoom:1;}
+
+header>nav>.gnb:after{display:block;clear:both;content:'';}
+
+
+header>nav>.gnb>li{
+    float:left; /*float 하면 clear처리 해야함.(위)*/
+    width:65px;
+    /*float하면 width값을 지정!
+    width 값 지정하지않은상태에서 하게되면 컨텐츠양만큼 쪼그라든다.*/
+    
+    
+}
+
+/*
+글씨 뿐 아니라
+네모난 영역전체를
+터치영역으로 해야된다
+
+display:block 하면
+width값은 부모의 100% 됌 !
+a 원래 인라인이였다*/
+
+header>nav>.gnb>li>a{
+    display:block;
+    height:20px;
+    line-height:20px;
+    color:#fff;
+    text-align:center;
+}
+
+/*
+nth-child()는 친형제관계에서만 성립
+li 는 친형제
+a 는 사촌 ~ ?
+*/
+
+header>nav>.gnb>li:nth-child(3)>a,
+header>nav>.gnb>li:nth-child(3)>a,{
+    color:#ff0;/*노랑*/
+    font-weight:800;
+    text-shadow:1px 1px 1px red;
+    /*white = #fff = rgba(255,255,255,0.5)마지막은 @@투명도@@*/
+}
+
+/*
+적용이 안되면
+1. 오타거나 
+2. 특정도값 문제
+*/
+
+/*img 는 인라인요소 -> width height 값지정 x (근데 이미지는 됌)
+상하 margin 적용 안된다 (근데 이미지는 됌)
+이미지는 한글자 취급 당함
+figure 을 이미지의 액자로 함
+img{w,h}보다 액자를만듬(.frame)
+frame에 w h 를 주고 100% 을 줌*/
+
+section{
+    width:570px;
+    margin:0 auto;
+    padding:30px 10px 10px 10px;
+    background-color:#fff;
+}
+
+section>h2{
+    margin-bottom:25px;
+    color:#000/*검정*/;
+    font-size:25px;
+   
+}
+
+section>p{font-size:14px;line-height:1.5;*zoom:1;}
+section>p:after{display:block;clear:both;content:'';}
+
+
+/*span 은 인라인
+width height 적용안된다
+그래서display block 먼저*/
+section .frame{
+    display:block;
+    overflow:hidden;
+    float:right;
+    width:300px;
+    margin:5px 0 5px 5px;
+    /*border: 1px solid red;*/
+    border-radius:5px;
+    box-shadow:3px 3px 3px #aaa;
+  
+}
+
+/*
+=section .frame{}
+확실할때 쓰는거
+한칸 띄우고 .class
+@@문맥 선택자@@
+*/
+
+section .frame>img{
+    /*
+    이미지 밑에 약간 뜨는 현상 해결방법
+    1. display block;을 이미지에 주기
+    2. vertical-align:top; 주기
+    */
+    display:block;
+    height:200px;
+    /*height=100% 였음...... 근데 사진 잘림*/
+    border:1px solid red;
+}
+
+
+footer>address{
+    height:80px;
+    color:#fff;/*하양*/
+    font-weight:800;
+    font-size:16px;
+    line-height:80px;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
